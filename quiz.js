@@ -1,20 +1,21 @@
-function checkAnswer (){
+function checkAnswer() {
     const correctAnswer = "4";
-    const selectedOption = document.querySelector ('input[name="quiz"]:checked')
+    const selectedOption = document.querySelector('input[name="quiz"]:checked');
+    const feedback = document.getElementById("feedback");
 
-    if (!selectedOption) return;
+    if (!selectedOption) {
+        feedback.textContent = "Please select an answer.";
+        return;
+    }
 
-    const userAnswer = selectedOption.value
-
+    const userAnswer = selectedOption.value;
 
     if (userAnswer === correctAnswer) {
-        feedback.textContent = "Correct! Well done";
-        feedback.style.color = "#28a745";
-    }
-    else{
-        feedback.textContent="That's incorrect. Try again!"
-        feedback.style.color = "#dc3545";
+        feedback.textContent = "Correct! Well done.";
+    } else {
+        feedback.textContent = "That's incorrect. Try again!";
     }
 }
-const submitButton = document.getElementById('submit-answer');
-submitButton.addEventListener('click', checkAnswer);
+
+const submitButton = document.getElementById("submit-answer");
+submitButton.addEventListener("click", checkAnswer);
